@@ -189,9 +189,50 @@
       min-height: 48px;
     }
 
-    .footer {
+    .clear-box {
+      display: none;
       margin-top: 34px;
-      padding: 24px 10px 4px;
+      margin-bottom: 26px;
+      padding: 26px 18px;
+      border: 2px solid rgba(255,255,255,.28);
+      border-radius: 20px;
+      background: linear-gradient(135deg, #ff1f1f, #990000);
+      box-shadow: 0 0 34px rgba(255,0,0,.55);
+      text-align: center;
+      animation: pop 0.35s ease-out;
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0.94);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .clear-title {
+      font-size: 31px;
+      font-weight: 900;
+      color: white;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 0 #000;
+    }
+
+    .clear-message {
+      margin-top: 14px;
+      font-size: 20px;
+      font-weight: 900;
+      color: white;
+      line-height: 1.55;
+      word-break: keep-all;
+    }
+
+    .footer {
+      margin-top: 18px;
+      padding: 20px 10px 4px;
       text-align: center;
       color: #ddd;
       font-size: 15px;
@@ -204,21 +245,18 @@
       opacity: 0.9;
     }
 
-    .footer-title {
-      margin: 12px 0;
-      color: #ffffff;
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 1px;
+    .footer-text {
+      margin: 16px 0;
+      font-size: 16px;
     }
 
     .footer-logo-text {
-      margin-top: 14px;
+      margin: 16px auto;
       padding: 12px;
-      border: 1px solid rgba(255, 40, 40, .55);
+      max-width: 260px;
+      border: 1px solid rgba(255,255,255,.25);
       border-radius: 12px;
-      color: #ffffff;
-      background: rgba(0,0,0,.45);
+      background: rgba(255,255,255,.05);
       font-weight: 800;
     }
 
@@ -287,15 +325,25 @@
       정답을 입력한 뒤 MISSION CLEAR 확인을 눌러주세요.
     </div>
 
+    <div id="clearBox" class="clear-box">
+      <div class="clear-title">🎯 MISSION CLEAR</div>
+      <div class="clear-message">
+        Mission Clear 화면을 보여주고<br>
+        스탬프를 받으세요!
+      </div>
+    </div>
+
     <div class="footer">
       <div class="footer-line">━━━━━━━━━━━━━━</div>
-      <div class="footer-title">MISSION CLEAR</div>
-      <div>
+
+      <div class="footer-text">
         모든 미션의 목표는 <span class="red">환자안전</span>입니다.
       </div>
+
       <div class="footer-logo-text">
         성빈센트병원 PI팀
       </div>
+
       <div class="footer-line">━━━━━━━━━━━━━━</div>
     </div>
 
@@ -316,17 +364,27 @@
       const ok3 = a3 === "의사소통";
 
       const wrong = [];
+      const result = document.getElementById("result");
+      const clearBox = document.getElementById("clearBox");
 
       if (!ok1) wrong.push("1번문제가 틀렸어");
       if (!ok2) wrong.push("2번문제가 틀렸어");
       if (!ok3) wrong.push("3번문제가 틀렸어");
 
-      const result = document.getElementById("result");
-
       if (wrong.length === 0) {
         result.innerHTML = "🎯 MISSION CLEAR!<br>모든 정답을 맞혔습니다.";
+        clearBox.style.display = "block";
+
+        setTimeout(function() {
+          clearBox.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+        }, 100);
+
       } else {
         result.innerHTML = wrong.join("<br>");
+        clearBox.style.display = "none";
       }
     }
   </script>
