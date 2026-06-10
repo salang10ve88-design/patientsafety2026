@@ -1,20 +1,298 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<title>환자안전의 날</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026년 제17회 환자안전의 날</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      background: #050505;
+      color: white;
+    }
+
+    .wrap {
+      min-height: 100vh;
+      padding: 26px 18px 42px;
+      background:
+        radial-gradient(circle at top right, rgba(255,0,0,.35), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(180,0,0,.25), transparent 35%),
+        linear-gradient(180deg, #090909, #130000 55%, #050505);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid #ff1f1f;
+      border-radius: 999px;
+      color: #ff3333;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .hero {
+      margin-top: 18px;
+      padding: 26px 18px;
+      border: 1px solid rgba(255, 0, 0, .55);
+      border-radius: 22px;
+      background: rgba(0,0,0,.55);
+      box-shadow: 0 0 30px rgba(255,0,0,.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: repeating-linear-gradient(
+        115deg,
+        transparent 0px,
+        transparent 14px,
+        rgba(255,0,0,.08) 15px,
+        transparent 17px
+      );
+      opacity: .5;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 900;
+      text-shadow: 3px 3px 0 #000, 0 0 14px rgba(255,0,0,.8);
+    }
+
+    .mission {
+      margin-top: 14px;
+      color: #ff1f1f;
+      font-size: 32px;
+      font-weight: 900;
+      font-style: italic;
+      line-height: 1.05;
+    }
+
+    .subtitle {
+      margin-top: 12px;
+      font-size: 15px;
+      color: #e5e5e5;
+      line-height: 1.6;
+    }
+
+    .section-title {
+      margin: 28px auto 18px;
+      width: fit-content;
+      padding: 10px 26px;
+      background: linear-gradient(90deg, #a80000, #ff1c1c, #a80000);
+      border-radius: 12px;
+      font-size: 22px;
+      font-weight: 900;
+      box-shadow: 0 0 20px rgba(255,0,0,.35);
+    }
+
+    .card {
+      margin: 16px 0;
+      padding: 20px 18px;
+      border: 1px solid rgba(255, 40, 40, .65);
+      border-radius: 18px;
+      background: rgba(0,0,0,.62);
+      box-shadow: inset 0 0 18px rgba(255,0,0,.08);
+    }
+
+    .q-label {
+      color: #ff2b2b;
+      font-size: 28px;
+      font-weight: 900;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .q-title {
+      font-size: 21px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .question {
+      font-size: 17px;
+      line-height: 1.75;
+      color: #f2f2f2;
+      word-break: keep-all;
+    }
+
+    .blank {
+      color: #ff3333;
+      font-weight: 900;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .hint {
+      margin-top: 14px;
+      padding: 12px;
+      border-left: 4px solid #ff1f1f;
+      background: rgba(255,255,255,.06);
+      color: #ddd;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .answer-box {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: #111;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #ff2b2b;
+      box-shadow: 0 0 12px rgba(255,0,0,.35);
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: 0;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #b90000, #ff2525);
+      color: white;
+      font-size: 17px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 12px;
+      font-size: 15px;
+      font-weight: 800;
+      color: #ffdddd;
+      text-align: center;
+      min-height: 22px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding: 18px 10px;
+      text-align: center;
+      color: #ddd;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .red {
+      color: #ff2525;
+      font-weight: 900;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-<h1>2026 제17회 환자안전의 날</h1>
+    <div class="badge">MISSION QUIZ</div>
 
-<p>
-MISSION: Patient Safety
-</p>
+    <section class="hero">
+      <h1>2026년 제17회<br>환자안전의 날</h1>
+      <div class="mission">MISSION:<br>Patient Safety</div>
+      <div class="subtitle">
+        환자안전 낱말퀴즈<br>
+        빈칸에 들어갈 환자안전 키워드를 찾아라!
+      </div>
+    </section>
 
-<p>
-민경이의 첫 홈페이지 성공!
-</p>
+    <div class="section-title">낱말퀴즈 미션</div>
+
+    <div class="card">
+      <div class="q-label">MISSION 01</div>
+      <div class="q-title">가로낱말</div>
+      <div class="question">
+        세계보건기구(WHO)는 환자안전사고를 예방하기 위하여 전 세계적인 동참을 촉구하고자
+        9월 17일을 세계 <span class="blank">OOOOO O</span>로 지정하였습니다.
+      </div>
+      <div class="hint">힌트: 9월 17일, 전 세계가 함께 기억하는 환자안전 기념일</div>
+    </div>
+
+    <div class="card">
+      <div class="q-label">MISSION 02</div>
+      <div class="q-title">세로낱말 ①</div>
+      <div class="question">
+        의약품 투여 전, 검사 시행 전 등에 정확한 <span class="blank">OOOO</span>을 위해
+        환자의 이름과 등록번호 또는 주민등록번호 앞자리로 <span class="blank">OOOO</span>을 시행합니다.
+      </div>
+      <div class="hint">힌트: 환자안전의 가장 기본이 되는 확인 절차</div>
+    </div>
+
+    <div class="card">
+      <div class="q-label">MISSION 03</div>
+      <div class="q-title">세로낱말 ②</div>
+      <div class="question">
+        의료진 간의 <span class="blank">OOOO</span> 오류를 예방하기 위한 효과적인
+        <span class="blank">OOOO</span> 전략으로는 SBAR, Check back, Call out 등이 있습니다.
+      </div>
+      <div class="hint">힌트: 의료진 사이에서 정확히 주고받아야 하는 것</div>
+    </div>
+
+    <div class="card">
+      <div class="q-title">정답 입력</div>
+      <div class="answer-box">
+        <input id="a1" placeholder="가로낱말 정답">
+        <input id="a2" placeholder="세로낱말 ① 정답">
+        <input id="a3" placeholder="세로낱말 ② 정답">
+        <button onclick="checkAnswer()">MISSION CLEAR 확인</button>
+      </div>
+      <div id="result" class="result"></div>
+    </div>
+
+    <div class="footer">
+      모든 미션의 목표는 <span class="red">환자안전</span>입니다.<br>
+      당신의 참여가 환자의 안전을 지킵니다.
+    </div>
+
+  </div>
+
+  <script>
+    function clean(text) {
+      return text.replace(/\s/g, "").toLowerCase();
+    }
+
+    function checkAnswer() {
+      const a1 = clean(document.getElementById("a1").value);
+      const a2 = clean(document.getElementById("a2").value);
+      const a3 = clean(document.getElementById("a3").value);
+
+      const ok1 = a1 === "환자안전의날";
+      const ok2 = a2 === "환자확인";
+      const ok3 = a3 === "의사소통";
+
+      const result = document.getElementById("result");
+
+      if (ok1 && ok2 && ok3) {
+        result.innerHTML = "🎯 MISSION CLEAR! 모든 정답을 맞혔습니다.";
+      } else {
+        result.innerHTML = "아직 완료되지 않았습니다. 다시 확인해 주세요.";
+      }
+    }
+  </script>
 
 </body>
 </html>
