@@ -114,12 +114,6 @@
       font-size: 28px;
       font-weight: 900;
       font-style: italic;
-      margin-bottom: 8px;
-    }
-
-    .q-title {
-      font-size: 21px;
-      font-weight: 900;
       margin-bottom: 12px;
     }
 
@@ -147,10 +141,8 @@
       line-height: 1.6;
     }
 
-    .answer-box {
-      margin-top: 18px;
-      display: grid;
-      gap: 10px;
+    .answer-input {
+      margin-top: 16px;
     }
 
     input {
@@ -171,23 +163,29 @@
 
     button {
       width: 100%;
-      padding: 15px;
+      margin-top: 20px;
+      padding: 16px;
       border: 0;
-      border-radius: 12px;
+      border-radius: 14px;
       background: linear-gradient(90deg, #b90000, #ff2525);
       color: white;
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 900;
       cursor: pointer;
+      box-shadow: 0 0 18px rgba(255,0,0,.35);
     }
 
     .result {
-      margin-top: 12px;
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
       font-size: 15px;
       font-weight: 800;
       color: #ffdddd;
       text-align: center;
-      min-height: 22px;
+      line-height: 1.7;
+      min-height: 48px;
     }
 
     .footer {
@@ -224,43 +222,44 @@
 
     <div class="card">
       <div class="q-label">MISSION 01</div>
-      <div class="q-title">가로낱말</div>
       <div class="question">
         세계보건기구(WHO)는 환자안전사고를 예방하기 위하여 전 세계적인 동참을 촉구하고자
         9월 17일을 세계 <span class="blank">OOOOO O</span>로 지정하였습니다.
       </div>
       <div class="hint">힌트: 9월 17일, 전 세계가 함께 기억하는 환자안전 기념일</div>
+      <div class="answer-input">
+        <input id="a1" placeholder="MISSION 01 정답 입력">
+      </div>
     </div>
 
     <div class="card">
       <div class="q-label">MISSION 02</div>
-      <div class="q-title">세로낱말 ①</div>
       <div class="question">
         의약품 투여 전, 검사 시행 전 등에 정확한 <span class="blank">OOOO</span>을 위해
         환자의 이름과 등록번호 또는 주민등록번호 앞자리로 <span class="blank">OOOO</span>을 시행합니다.
       </div>
       <div class="hint">힌트: 환자안전의 가장 기본이 되는 확인 절차</div>
+      <div class="answer-input">
+        <input id="a2" placeholder="MISSION 02 정답 입력">
+      </div>
     </div>
 
     <div class="card">
       <div class="q-label">MISSION 03</div>
-      <div class="q-title">세로낱말 ②</div>
       <div class="question">
         의료진 간의 <span class="blank">OOOO</span> 오류를 예방하기 위한 효과적인
         <span class="blank">OOOO</span> 전략으로는 SBAR, Check back, Call out 등이 있습니다.
       </div>
       <div class="hint">힌트: 의료진 사이에서 정확히 주고받아야 하는 것</div>
+      <div class="answer-input">
+        <input id="a3" placeholder="MISSION 03 정답 입력">
+      </div>
     </div>
 
-    <div class="card">
-      <div class="q-title">정답 입력</div>
-      <div class="answer-box">
-        <input id="a1" placeholder="가로낱말 정답">
-        <input id="a2" placeholder="세로낱말 ① 정답">
-        <input id="a3" placeholder="세로낱말 ② 정답">
-        <button onclick="checkAnswer()">MISSION CLEAR 확인</button>
-      </div>
-      <div id="result" class="result"></div>
+    <button onclick="checkAnswer()">MISSION CLEAR 확인</button>
+
+    <div id="result" class="result">
+      정답을 입력한 뒤 MISSION CLEAR 확인을 눌러주세요.
     </div>
 
     <div class="footer">
@@ -284,12 +283,18 @@
       const ok2 = a2 === "환자확인";
       const ok3 = a3 === "의사소통";
 
+      const wrong = [];
+
+      if (!ok1) wrong.push("MISSION 01이 틀렸어");
+      if (!ok2) wrong.push("MISSION 02가 틀렸어");
+      if (!ok3) wrong.push("MISSION 03이 틀렸어");
+
       const result = document.getElementById("result");
 
-      if (ok1 && ok2 && ok3) {
-        result.innerHTML = "🎯 MISSION CLEAR! 모든 정답을 맞혔습니다.";
+      if (wrong.length === 0) {
+        result.innerHTML = "🎯 MISSION CLEAR!<br>모든 정답을 맞혔습니다.";
       } else {
-        result.innerHTML = "아직 완료되지 않았습니다. 다시 확인해 주세요.";
+        result.innerHTML = wrong.join("<br>");
       }
     }
   </script>
