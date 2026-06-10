@@ -76,10 +76,10 @@
     .mission {
       margin-top: 14px;
       color: #ff1f1f;
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 900;
       font-style: italic;
-      line-height: 1.05;
+      line-height: 1.08;
     }
 
     .subtitle {
@@ -92,12 +92,13 @@
     .section-title {
       margin: 28px auto 18px;
       width: fit-content;
-      padding: 10px 26px;
+      padding: 10px 24px;
       background: linear-gradient(90deg, #a80000, #ff1c1c, #a80000);
       border-radius: 12px;
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 900;
       box-shadow: 0 0 20px rgba(255,0,0,.35);
+      text-align: center;
     }
 
     .card {
@@ -111,7 +112,7 @@
 
     .q-label {
       color: #ff2b2b;
-      font-size: 28px;
+      font-size: 25px;
       font-weight: 900;
       font-style: italic;
       margin-bottom: 12px;
@@ -189,12 +190,36 @@
     }
 
     .footer {
-      margin-top: 30px;
-      padding: 18px 10px;
+      margin-top: 34px;
+      padding: 24px 10px 4px;
       text-align: center;
       color: #ddd;
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.8;
+    }
+
+    .footer-line {
+      color: #ff2525;
+      letter-spacing: 2px;
+      opacity: 0.9;
+    }
+
+    .footer-title {
+      margin: 12px 0;
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .footer-logo-text {
+      margin-top: 14px;
+      padding: 12px;
+      border: 1px solid rgba(255, 40, 40, .55);
+      border-radius: 12px;
+      color: #ffffff;
+      background: rgba(0,0,0,.45);
+      font-weight: 800;
     }
 
     .red {
@@ -213,46 +238,46 @@
       <h1>2026년 제17회<br>환자안전의 날</h1>
       <div class="mission">MISSION:<br>Patient Safety</div>
       <div class="subtitle">
-        환자안전 낱말퀴즈<br>
+        Mission 1. 환자안전 낱말퀴즈<br>
         빈칸에 들어갈 환자안전 키워드를 찾아라!
       </div>
     </section>
 
-    <div class="section-title">낱말퀴즈 미션</div>
+    <div class="section-title">Mission 1. 환자안전 낱말퀴즈</div>
 
     <div class="card">
-      <div class="q-label">MISSION 01</div>
+      <div class="q-label">1번문제</div>
       <div class="question">
         세계보건기구(WHO)는 환자안전사고를 예방하기 위하여 전 세계적인 동참을 촉구하고자
         9월 17일을 세계 <span class="blank">OOOOO O</span>로 지정하였습니다.
       </div>
       <div class="hint">힌트: 9월 17일, 전 세계가 함께 기억하는 환자안전 기념일</div>
       <div class="answer-input">
-        <input id="a1" placeholder="MISSION 01 정답 입력">
+        <input id="a1" placeholder="1번문제 정답 입력">
       </div>
     </div>
 
     <div class="card">
-      <div class="q-label">MISSION 02</div>
+      <div class="q-label">2번문제</div>
       <div class="question">
         의약품 투여 전, 검사 시행 전 등에 정확한 <span class="blank">OOOO</span>을 위해
         환자의 이름과 등록번호 또는 주민등록번호 앞자리로 <span class="blank">OOOO</span>을 시행합니다.
       </div>
       <div class="hint">힌트: 환자안전의 가장 기본이 되는 확인 절차</div>
       <div class="answer-input">
-        <input id="a2" placeholder="MISSION 02 정답 입력">
+        <input id="a2" placeholder="2번문제 정답 입력">
       </div>
     </div>
 
     <div class="card">
-      <div class="q-label">MISSION 03</div>
+      <div class="q-label">3번문제</div>
       <div class="question">
         의료진 간의 <span class="blank">OOOO</span> 오류를 예방하기 위한 효과적인
         <span class="blank">OOOO</span> 전략으로는 SBAR, Check back, Call out 등이 있습니다.
       </div>
       <div class="hint">힌트: 의료진 사이에서 정확히 주고받아야 하는 것</div>
       <div class="answer-input">
-        <input id="a3" placeholder="MISSION 03 정답 입력">
+        <input id="a3" placeholder="3번문제 정답 입력">
       </div>
     </div>
 
@@ -263,8 +288,15 @@
     </div>
 
     <div class="footer">
-      모든 미션의 목표는 <span class="red">환자안전</span>입니다.<br>
-      당신의 참여가 환자의 안전을 지킵니다.
+      <div class="footer-line">━━━━━━━━━━━━━━</div>
+      <div class="footer-title">MISSION CLEAR</div>
+      <div>
+        모든 미션의 목표는 <span class="red">환자안전</span>입니다.
+      </div>
+      <div class="footer-logo-text">
+        성빈센트병원 PI팀
+      </div>
+      <div class="footer-line">━━━━━━━━━━━━━━</div>
     </div>
 
   </div>
@@ -285,9 +317,9 @@
 
       const wrong = [];
 
-      if (!ok1) wrong.push("MISSION 01이 틀렸어");
-      if (!ok2) wrong.push("MISSION 02가 틀렸어");
-      if (!ok3) wrong.push("MISSION 03이 틀렸어");
+      if (!ok1) wrong.push("1번문제가 틀렸어");
+      if (!ok2) wrong.push("2번문제가 틀렸어");
+      if (!ok3) wrong.push("3번문제가 틀렸어");
 
       const result = document.getElementById("result");
 
